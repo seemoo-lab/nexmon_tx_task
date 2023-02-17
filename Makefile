@@ -200,7 +200,7 @@ endif
 install-firmware: dhd.ko utils/tx_task.sh
 ifneq ($(REMOTEADDR),)
 	@printf "\033[0;31m  COPYING TO ROUTER\033[0m %s => /jffs/\n" $^
-	$(Q)scp -O $^ admin@$$REMOTEADDR:/jffs/
+	$(Q)scp $^ admin@$$REMOTEADDR:/jffs/
 	@printf "\033[0;31m  LOADING\033[0m /jffs/dhd.ko\n"
 	$(Q)ssh admin@$$REMOTEADDR "/sbin/rmmod dhd; /sbin/insmod /jffs/dhd.ko"
 else
