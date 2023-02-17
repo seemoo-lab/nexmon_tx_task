@@ -113,7 +113,8 @@ _We assume you are connected to your router via SSH._
 # free
 /jffs/tx_task.sh deinit
 ```
-To start a task it must be initialized first. A stopped task can be restarted without initalization using start. Only one task can be initalized at once, therefore, an existing task is automatically cleared when a second one gets initialized.
+To start a task it must be initialized first. A stopped task can be restarted without initalization using start. Only one task can be initalized at once, therefore, an existing task is automatically cleared when a second one gets initialized. A running task is stopped when freed.  
+
 #### Default configuration
 In its current state, this will configure a transmission of a data frame roughly every 500 ms over a bandwidth of 20 MHz with VHT MCS 0 modulation/coding using 1 spatial stream. The default data frame has the following contents:  
 ```
