@@ -1,3 +1,10 @@
+# Specific
+BUILD_NUMBER
+dlarray_4366c0.bin
+gen/
+log/
+src/*_compressed.c
+
 # Prerequisites
 *.d
 
