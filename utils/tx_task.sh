@@ -48,9 +48,9 @@ spatial_mode=0    # 0: OFF, 1: ON, 255: AUTO, might enable STBC -> leave OFF if 
 periodic=1        # 0: single transmission, 1: repetitive transmissions
 tx_delay=500      # delay in milliseconds between repetitive transmissions and before the first transmission
 repetitions=-1    # number of repetitive transmissions, -1 means infinite
-bandwidth=3       # bandwidth (1, 2, 3 : 20, 40 or 80 MHz)
-mcs=4             # VHT Modulation Coding Scheme
-spatial_streams=4 # number of spatial strams (1 - 4)
+bandwidth=1       # bandwidth (1, 2, 3 : 20, 40 or 80 MHz)
+mcs=0             # VHT Modulation Coding Scheme
+spatial_streams=1 # number of spatial strams (1 - 4)
 
 # Data frame, To DS: 0 From DS: 1, Receiver/Destination address: 00:11:22:33:44:55, Transmitter address/BSS Id: 00:11:22:33:44:66, Source address: 00:11:22:33:44:77, no payload
 frame_length=24
