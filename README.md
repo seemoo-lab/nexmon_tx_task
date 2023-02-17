@@ -154,7 +154,7 @@ The util script (`utils/tx_task.sh`) features a `# user settings` section that c
 - The delay before the first and between consecutive transmissions can be set using `tx_delay` in milliseconds.
 - A number for periodic transmissions shall be given with `repetitions`, where `-1` means infinite.
 - A VHT modulation coding scheme index can be set with `mcs`, together with the number of spatial streams to use in `spatial_streams`.  
-  _For more control over the coding settings check out `nexmon/patches/include/rates.h`._
+  _For more control over the coding settings check out `nexmon/patches/include/rates.h`. Or use the [brcm-ratespec](https://github.com/jlinktu/brcm-ratespec) tool to create a compatible ratespec._
 - The bandwidth over wich the frame might be transmitted can be set with `bandwidth` to either `1`, `2`, or `3`, corresponding to 20, 40, or 80 MHz.  
   _Note that you need to tune the Wi-Fi chip at a channel that has at least the expected bandwidth._
 - `frame_bytes` and `frame_length` let you control the frame that shall be transmitted. `frame_length` shall be set to the length of bytes given in `frame_bytes`.
