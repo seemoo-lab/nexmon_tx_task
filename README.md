@@ -85,6 +85,16 @@ The provided `tx_task.sh` util script can be used to operate the patched firmwar
     scp nexutil admin@<address of your rt-ac86u>:/jffs/nexutil
     ssh admin@<address of your rt-ac86u> "/bin/chmod +x /jffs/nexutil"
     ```
+
+#### Configure the Wi-Fi interface
+After loading the customized `dhd` driver, both Wi-Fi interfaces (`eth5` for 2.4 GHz, `eth6` for 5 Ghz band) should be down. To use them again, they need to be configure and started. This might be done by setting a locale, channel, and bringing the interface into the up state.  
+E.g. for tuning to the 80 MHz wide channel 157 from 5735 to 5815 MHz with 20 MHz control channel from 5775 to 5795 MHz do the following:  
+_Again we assume SSH is enabled on port 22 on the router, the default user name `admin`, and that you are connected to the router._  
+```
+ssh admin@<address of your rt-ac86u> "/usr/sbin/wl -i eth6 country US"
+ssh admin@<address of your rt-ac86u> "/usr/sbin/wl -i eth6 chanspec 157/80"
+ssh admin@<address of your rt-ac86u> "/usr/sbin/wl -i eth6 up"
+```
   
 ## Inject and schedule transmissions
 _Read [Getting Started](#getting-started) first._  
