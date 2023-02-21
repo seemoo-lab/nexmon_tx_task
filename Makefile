@@ -197,7 +197,17 @@ ifndef NEXMON_SETUP_ENV
 	$(error run 'source setup_env.sh' first in the repository\'s root directory)
 endif
 
-install-firmware: dhd.ko utils/tx_task.sh
+install-util: utils/tx_task.sh
+ifneq ($(REMOTEADDR),)
+	@printf "\033[0;31m  COPYING TO ROUTER\033[0m %s => /jffs/\n" $^
+	$(Q)scp $^ admin@$$REMOTEADDR:/jffs/
+	@printf "\033[0;31m  MAKE EXECUTABLE\033[0m\n"
+	$(Q)ssh admin@$$REMOTEADDR "/bin/chmod u+x /jffs/tx_task.sh"
+else
+	$(error Warning: Cannot install utils/tx_task.sh, no remote address given. Run make with REMOTEADDR=<remote address>.)
+endif
+
+install-firmware: dhd.ko
 ifneq ($(REMOTEADDR),)
 	@printf "\033[0;31m  COPYING TO ROUTER\033[0m %s => /jffs/\n" $^
 	$(Q)scp $^ admin@$$REMOTEADDR:/jffs/
