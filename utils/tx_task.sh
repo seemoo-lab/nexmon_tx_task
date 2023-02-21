@@ -50,9 +50,9 @@ tx_delay=500      # delay in milliseconds between repetitive transmissions and b
 repetitions=-1    # number of repetitive transmissions, -1 means infinite
 bandwidth=1       # bandwidth (1, 2, 3 : 20, 40 or 80 MHz)
 mcs=0             # VHT Modulation Coding Scheme
-spatial_streams=1 # number of spatial strams (1 - 4)
+spatial_streams=1 # number of spatial streams (1 - 4)
 
-# Data frame, To DS: 0 From DS: 1, Receiver/Destination address: 00:11:22:33:44:55, Transmitter address/BSS Id: 00:11:22:33:44:66, Source address: 00:11:22:33:44:77, no payload
+# Data frame, To DS: 0 From DS: 1, Receiver/Destination address: 00:11:22:33:44:55, Transmitter address/BSS Id: 00:11:22:33:44:66, Source address: 00:11:22:33:44:77, 4 byte payload 0x12345678
 frame_length=28
 frame_bytes='\x08\x02\x00\x00\x00\x11\x22\x33\x44\x55\x00\x11\x22\x33\x44\x66\x00\x11\x22\x33\x44\x77\x00\x00\x12\x34\x56\x78'
 
