@@ -54,7 +54,7 @@ source setup_env.sh
 cd patches/bcm4366c0/10_10_122_20/nexmon_tx_task
 make install-firmware REMOTEADDR=<address of your rt-ac86u>
 ```
-This first copies a modified version of the `dhd` kernel object and the util script `tx_task.sh` to the router at `/jffs/` and then unloads the current `dhd` module and instead loads the modified one.
+This first copies a modified version of the `dhd` kernel object to the router at `/jffs/` and then unloads the current `dhd` module and instead loads the modified one.
 #### Build and install `nexutil`
 The provided `tx_task.sh` util script can be used to operate the patched firmware. It depends on `nexutil` that comes with the `nexmon` repository. Perform the following steps to build and install `nexutil` on the Asus RT-AC86U:
 1. Clone the `aarch64` toolchain from Asuswrt-Merlin toolchain repository:  
@@ -111,17 +111,24 @@ nexutil -I<interface> -s432
 ```  
 ### `tx_task.sh`
 _Currently specific to the Asus RT-AC86U, but can be adapted for different environments by modifying a couple of variables._    
-To facilitate the process of operating with the patched firmware, we provide an example util script named `tx_task.sh`. It can be operated as follows:  
+To facilitate the process of operating with the patched firmware, we provide an example util script named `tx_task.sh`. It can be installed and operated as follows:  
+_We assume SSH is enabled on port 22 on the router, the default user name `admin`, and that you are connected to the router._  
+```
+# install
+cd nexmon/patches/bcm4366c0/10_10_122_20/nexmon_tx_task
+make install-util REMOTEADDR=<address of your rt-ac86u>
+```
+Above copies `utils/tx_task.sh` to the router at `/jffs/` and sets execution rights to it. Afterwards, the following commands can be used to perform IOCTLs with the parameters configured in the script:  
 _We assume you are connected to your router via SSH._
 ```
 # initialize
-/jffs/tx_task.sh init
+/jffs/tx_task.sh <interface> init
 # start
-/jffs/tx_task.sh start
+/jffs/tx_task.sh <interface> start
 # stop
-/jffs/tx_task.sh stop
+/jffs/tx_task.sh <interface> stop
 # free
-/jffs/tx_task.sh deinit
+/jffs/tx_task.sh <interface> deinit
 ```
 To start a task it must be initialized first. A stopped task can be restarted without initalization using start. Only one task can be initalized at once, therefore, an existing task is automatically cleared when a second one gets initialized. A running task is stopped when freed.  
 
