@@ -151,6 +151,8 @@ IEEE 802.11 Data, Flags: ......F.C
     STA address: 00:11:22:33:44:55
     .... .... .... 0000 = Fragment number: 0
     0000 0000 0000 .... = Sequence number: 0
+Data (4 bytes)
+    Data: 12345678
 ```  
 Duration and sequence number are automatically set by the Wi-Fi chip, for repeating transmissions the sequence number increases. Furthermore, a 4 byte frame check sequence is automatically appended by the Wi-Fi chip.
   

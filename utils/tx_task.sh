@@ -53,8 +53,8 @@ mcs=0             # VHT Modulation Coding Scheme
 spatial_streams=1 # number of spatial strams (1 - 4)
 
 # Data frame, To DS: 0 From DS: 1, Receiver/Destination address: 00:11:22:33:44:55, Transmitter address/BSS Id: 00:11:22:33:44:66, Source address: 00:11:22:33:44:77, no payload
-frame_length=24
-frame_bytes='\x08\x02\x00\x00\x00\x11\x22\x33\x44\x55\x00\x11\x22\x33\x44\x66\x00\x11\x22\x33\x44\x77\x00\x00'
+frame_length=28
+frame_bytes='\x08\x02\x00\x00\x00\x11\x22\x33\x44\x55\x00\x11\x22\x33\x44\x66\x00\x11\x22\x33\x44\x77\x00\x00\x12\x34\x56\x78'
 
 if [ "$#" -lt 2 ]; then
     ${PRINTF} "${usage_str}"
